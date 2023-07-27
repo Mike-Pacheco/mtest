@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hojas de estilos -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- Iconos Bootstrap -->
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="./favicon_io/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <!-- Iconos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <!-- Plantilla normalización -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="./css/styles.css">
+    
+    <!-- Favicon para navegador-->
+     <link rel="shortcut icon" href="./favicon_io/favicon.ico" type="image/x-icon">
+    
+     <!-- Configuracion general de PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <!-- Color de la aplicación -->
+    <meta name="theme-color" content="#ffffff">
+    <!-- sw y pwa -->
+
+    <title>photoplaymx</title>
+</head>
+<div class="main-header">
+<header>
+    <section id="barra-redes">
+        <div class="container-fluid secundario pt-3">
+            <div class="d-flex justify-content-between text-success">
+                <div class="col-12 col-sm-12">
+            <nav class="navbar navbar-dark navbar-expand-lg">
+                <!-- nav container-start -->
+                <div class="container-fluid flex-row-reverse d-flex">
+                    <!-- <a href="" class="navbar-brand fs-4">photoplaymx</a> -->
+                    <!-- button -->
+                    <ul class="list-unstyled d-inline-flex ml-auto">
+                        <li class="p-4"><a href="#"><i class="bi bi-search nav-icons"></i></a></li>
+                        <li class="p-4"><a href="#"><i class="bi bi-person nav-icons"></i></a></li>
+                        <li class="p-4"><a href="#"><i class="bi bi-bag nav-icons"></i></a></li>
+                    </ul>  
+                    <button class="navbar-toggler .d-none.d-md-block color-toggle .d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#contenido">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>    
+                    <!-- off canvas -->
+                    <section id="contenido" class="offcanvas offcanvas-start" tabindex="-1">    
+                        <div class="offcanvas-header"><img src="./img/logo1.png" alt="" class="nav-logo"></div>
+                        <div>
+                            <ul class="navbar-nav">
+                                <li class="nav-item d-lg-none"><a class="nav-link" href="#editorial">Editorial<i class="bi bi-arrow-right d-lg-none d-lg-block ul-icons m-5"></i></a></li>
+                                <li class="nav-item d-lg-none"><a class="nav-link" href="#producto">Producto<i class="bi bi-arrow-right d-lg-none d-lg-block ul-icons m-5"></i></a></li>
+                                <li class="nav-item d-lg-none"><a class="nav-link" href="#portraits">Retratos<i class="bi bi-arrow-right d-lg-none d-lg-block ul-icons m-5"></i></a></li>
+                                <li class="nav-item d-lg-none"><a class="nav-link" href="#sociales">Sociales<i class="bi bi-arrow-right d-lg-none d-lg-block ul-icons m-5"></i></a></li>
+                                <li class="nav-item d-lg-none"><a class="nav-link" href="#ecommerce">Ecommerce<i class="bi bi-arrow-right d-lg-none d-lg-block ul-icons m-5"></i></a></li>
+                                
+                                <li class="nav-item d-none d-md-block"><a class="nav-link" href="#inicio">Inicio</a></li>
+                                <li class="nav-item d-none d-md-block"><a class="nav-link" href="#categorias">Categorías</a></li>
+                                <li class="nav-item d-none d-md-block"><a class="nav-link" href="#gallery">Galería</a></li>
+                                <li class="nav-item d-none d-md-block"><a class="nav-link" href="#contacto">Contacto</a></li>
+                                
+                                <div class="d-lg-none align-self-center py-3 icons-toggle-div">
+                                    <a href="https://m.facebook.com/photoplay.m"><i class="bi bi-facebook px-2 icons-toggle"></i></a>
+                                    <a href="https://www.instagram.com/photoplay.mx/"><i class="bi bi-instagram px-2 icons-toggle"></i></a>
+                                  </div>
+                            </ul>         
+                        </div>   
+                    </section>
+                    <a href="" class="navbar-brand text-info fw-semibold fs-4 d-none d-lg-block"><img src="./img/logo1.png" alt="" class="nav-logo2"></a>
+                </div>
+            </nav>            
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+</header>
+</div>
+<main>
+    <swiper-container id="inicio" class="mySwiper bg-black" pagination="true" pagination-dynamic-bullets="true" autoplay-delay="5500" autoplay-disable-on-interaction="false">  
+      <swiper-slide>
+          <img src="./img/banner.jpg" alt="">
+          <div class="texto-centrado">
+            <p class="text-banner">PHOTOPLAYMX</p>
+          </div>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="./img/banner2.jpg" alt="">
+          <div class="texto-centrado">
+            <p class="text-banner">PHOTOPLAYMX</p>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+      
+      
+      <div id="categorias" class="first-title">
+        <h1>Categorías</h1>
+      </div>
+      <section id="editorial" class="container editorial">
+        <div class="row no-gutters">
+            <div class="col-md-9">
+              <h2 class="title text-mini2">Editorial</h2>
+              <p class="p-services text-mini2">Captura momentos únicos y crea historias visuales cautivadoras</p>
+            <img src="./img/service-editorial.jpg" alt="Imagen" class="img-fluid">
+          </div>
+          <div class="col-md-3 text-service img-2">
+            <h2 class="title text-mini1">Editorial</h2>
+            <p class="p-services text-mini1">Captura momentos únicos y crea historias visuales cautivadoras</p>
+              <img src="./img/service-editorial2.jpg" alt="Imagen" class="img-fluid img-mini1">
+              <img src="./img/service-editorial22.jpg" alt="Imagen" class="img-fluid img-mini2">
+            </div>
+        </div>
+      </section>
+      
+
+    <div id="categorias" class="first-title">
+      </div>
+      <section id="portraits" class="container editorial">
+        <div class="row no-gutters flex-row-reverse">
+            <div class="col-md-9">
+              <h2 class="title text-mini2">Portraits</h2>
+              <p class="p-services text-mini2">Instantáneas artísticas que capturan tu esencia y personalidad</p>
+            <img src="./img/service-portraits.jpg" alt="Imagen" class="img-fluid">
+          </div>
+          <div class="col-md-3 text-service img-2">
+            <h2 class="title text-mini1">Portraits</h2>
+            <p class="p-services text-mini1">Instantáneas artísticas que capturan tu esencia y personalidad</p>
+            <img src="./img/service-portraits2.jpg" alt="Imagen" class="img-fluid img-mini1">
+            <img src="./img/service-portraits22.jpg" alt="Imagen" class="img-fluid img-mini2">
+            </div>
+        </div>
+      </section>
+
+    <div id="categorias" class="first-title">
+      </div>
+      <section id="producto" class="container editorial">
+        <div class="row no-gutters">
+            <div class="col-md-9">
+              <h2 class="title text-mini2">Producto</h2>
+              <p class="p-services text-mini2">Imágenes profesionales que realzan tus productos con elegancia</p>
+            <img src="./img/service-producto.jpg" alt="Imagen" class="img-fluid">
+          </div>
+          <div class="col-md-3 text-service img-2">
+            <h2 class="title text-mini1">Producto</h2>
+            <p class="p-services text-mini1">Imágenes profesionales que realzan tus productos con elegancia</p>
+            <img src="./img/service-producto2.jpg" alt="Imagen" class="img-fluid img-mini1">
+            <img src="./img/service-producto22.jpg" alt="Imagen" class="img-fluid img-mini2">
+            </div>
+        </div>
+      </section>
+      
+      <div id="categorias" class="first-title">
+    </div>
+    <section id="sociales" class="container editorial">
+      <div class="row no-gutters flex-row-reverse">
+          <div class="col-md-9">
+            <h2 class="title text-mini2">Sociales</h2>
+            <p class="p-services text-mini2">Inmortaliza tus eventos con nuestra fotografía social profesional</p>
+          <img src="./img/service-sociales.png" alt="Imagen" class="img-fluid">
+        </div>
+        <div class="col-md-3 text-service img-2">
+          <h2 class="title text-mini1">Sociales</h2>
+          <p class="p-services text-mini1">Inmortaliza tus eventos con nuestra fotografía social profesional</p>
+          <img src="./img/service-editorial2.jpg" alt="Imagen" class="img-fluid img-mini1">
+          <img src="./img/service-editorial22.jpg" alt="Imagen" class="img-fluid img-mini2">
+          </div>
+      </div>
+    </section>
+    
+    <div id="categorias" class="first-title">
+      </div>
+      <section id="ecommerce" class="container editorial">
+        <div class="row no-gutters" data-aos="zoom-in">
+            <div class="col-md-9">
+              <h2 class="title text-mini2">Ecommerce</h2>
+              <p class="p-services text-mini2">Imágenes cautivadoras que impulsan el éxito de tu ecommerce</p><img src="./img/service-ecommerce.jpg" alt="Imagen" class="img-fluid">
+          </div>
+          <div class="col-md-3 text-service img-2" data-aos="zoom-in">
+            <h2 class="title text-mini1">Ecommerce</h2>
+            <p class="p-services text-mini1">Imágenes cautivadoras que impulsan el éxito de tu ecommerce</p>
+            <img src="./img/service-ecommerce2.png" alt="Imagen" class="img-fluid img-mini1">
+            <img src="./img/service-ecommerce22.jpg" alt="Imagen" class="img-fluid img-mini2">
+            </div>
+        </div>
+      </section>
+
+          <!-- Clientes -->
+          
+          <div class="container container-clients"> 
+            <h1 class="text-center mt-5 text-clients">Nuestros clientes</h1>
+            <div class="row justify-content-center mt-5 clients">
+              <div class="col-md-4 text-center">
+                <img src="./img/client-1.png" alt="Moet" class="img-fluid">
+              </div>
+              <div class="col-md-4 text-center">
+                <img src="./img/client-2.png" alt="Massimo" class="img-fluid">
+              </div>
+              <div class="col-md-4 text-center">
+                <img src="./img/client-3.png" alt="Stella" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <!-- Galeria -->
+        <section id="gallery" class="gallery">
+
+          <div class="container" data-aos="fade-up">
+            <div class="section-title">
+              <h1>Galería</h1>
+            </div>
+          </div>
+    
+          <div class="container-fluid gallery-container" data-aos="fade-up" data-aos-delay="100">
+    
+            <div class="row g-2">
+              <div class="col-lg-4 col-md-4">
+                <div class="gallery-item">
+                  <img src="./img/gallery-1.jpg" alt="" class="img-fluid">
+                </a>
+                </div>
+              </div>
+    
+              <div class="col-lg-4 col-md-4">
+                <div class="gallery-item">
+                  <img src="./img/gallery-2.jpg" alt="" class="img-fluid">
+                  </a>
+                </div>
+              </div>
+    
+              <div class="col-lg-4 col-md-4">
+                <div class="gallery-item">
+                  <img src="./img/gallery-3.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6">
+              <div class="gallery-item">
+                <img src="./img/gallery-4.jpg" alt="" class="img-fluid">
+              </a>
+              </div>
+            </div>
+  
+            <div class="col-lg-6 col-md-6">
+              <div class="gallery-item">
+                <img src="./img/gallery-5.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+              <div class="gallery-item">
+                <img src="./img/gallery-6.jpg" alt="" class="img-fluid">
+              </a>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-4">
+              <div class="gallery-item">
+                <img src="./img/gallery-7.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+  
+            <div class="col-lg-4 col-md-4">
+              <div class="gallery-item">
+                <img src="./img/gallery-8.jpg" alt="" class="img-fluid">
+              </a>
+            </div>
+          </div>
+            </div>      
+          </div>
+        </section>
+        <!-- End Gallery Section -->
+</main>
+<footer id="contacto">
+  <div class="container__footer">
+      <div class="box__footer">
+        <h2>Contacto</h2>
+          <div class="terms">
+              <p>Creación de contenido multimedia diversificado en multiples areas de contenido en photoplay.com. 
+              Disponibilidad de contrataciones o propuestas en la parte de contacto.</p>
+          </div>
+      </div>    
+           
+           <div class="box__footer">
+          <h2>Redes Sociales</h2>
+          <a href="https://www.instagram.com/photoplay.mx/" target="_blank" class="email">Instagram</a>
+          <a href="https://www.facebook.com/photoplay.m" target="_blank" class="email">Facebook</a>
+      </div>
+
+      <div class="box__footer">
+        <h2 class="d-none d-sm-block">Email</h2>
+          <a href="#" class="email">photoplay.mmx@gmail.com</a>
+          <a href="#" class="email">photoplay-mx@outlook.com</a>            
+      </div>
+  </div>
+
+</footer>
+
+<!-- Script js -->
+
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/swiper-bundle.min.js"></script>
+ <script src="./js/scripts.js"></script>
+ 
+</body>
+
+
+
+</html>
