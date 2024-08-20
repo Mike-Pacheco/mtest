@@ -12,14 +12,20 @@
     --color-water:linear-gradient(to left,#142544,#1b6d6e);
 }
 
-body{
-    background-image:var(--color-bg);
+body {
+    background-image: var(--color-bg);
     min-height: 100vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items:flex-end;
+    align-items: flex-end;
     overflow: hidden;
+}
+
+@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+    body {
+        max-height: 120vh; 
+    }
 }
 .flower{
     position: relative;
