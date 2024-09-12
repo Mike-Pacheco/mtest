@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Código del menú hamburguesa
     const hamburger = document.getElementById("hamburger");
     const navMenuMobile = document.querySelector(".menu-items-mobile");
-    const navbar = document.querySelector("nav"); // Selecciona la navbar
+    const navbar = document.querySelector("nav");
 
     hamburger.addEventListener("click", function () {
         if (navMenuMobile.classList.contains("show")) {
@@ -21,67 +22,161 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Evento de scroll para reducir el tamaño de la navbar
     window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) { // Si el scroll es mayor a 50px
-            navbar.classList.add("navbar-shrink"); // Añade la clase para reducir la navbar
+        if (window.scrollY > 40) {
+            navbar.classList.add("navbar-shrink");
         } else {
-            navbar.classList.remove("navbar-shrink"); // Remueve la clase si el scroll es menor o igual a 50px
+            navbar.classList.remove("navbar-shrink");
         }
     });
-});
-let currentIndex = 0;
 
-function showSlide(index) {
-    const slides = document.querySelectorAll('.carousel-item');
-    const totalSlides = slides.length;
+    // Código del carrusel
+    let currentIndex = 0;
+    const slides = document.querySelector('.custom-carousel-slides');
+    const slideItems = document.querySelectorAll('.custom-carousel-slide');
+    const totalSlides = slideItems.length;
+    const prevButton = document.querySelector('.custom-prev');
+    const nextButton = document.querySelector('.custom-next');
+    const indicatorsContainer = document.querySelector('.custom-indicators');
+    let autoSlideInterval;
 
-    if (index >= totalSlides) {
-        currentIndex = 0;
-    } else if (index < 0) {
-        currentIndex = totalSlides - 1;
-    } else {
-        currentIndex = index;
+    // Crear indicadores
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('custom-indicator');
+        dot.addEventListener('click', () => showSlide(i));
+        indicatorsContainer.appendChild(dot);
     }
+    const dots = document.querySelectorAll('.custom-indicator');
 
-    const offset = -currentIndex * 100;
-    document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
-
-    slides.forEach((slide, idx) => {
-        slide.classList.remove('active');
-        if (idx === currentIndex) {
-            slide.classList.add('active');
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else {
+            currentIndex = index;
         }
-    });
-}
 
-function nextSlide() {
-    showSlide(currentIndex + 1);
-}
+        const offset = -currentIndex * 100;
+        slides.style.transform = `translateX(${offset}%)`;
 
-function prevSlide() {
-    showSlide(currentIndex - 1);
-}
-
-// Inicializa el primer slide
-showSlide(currentIndex);
-
-
-// Selecciona todas las secciones que quieres animar
-const sections = document.querySelectorAll('.section');
-
-// Crea el Intersection Observer
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Agrega la clase "visible" cuando la sección está en el viewport
-      entry.target.classList.add('visible');
-      // Una vez que se agrega la clase, puedes dejar de observar el elemento
-      observer.unobserve(entry.target);
+        dots.forEach((dot, idx) => {
+            dot.classList.remove('active');
+            if (idx === currentIndex) {
+                dot.classList.add('active');
+            }
+        });
     }
-  });
-}, { threshold: 0.2 }); // 0.2 significa que el 20% del elemento debe estar visible
 
-// Aplica el observer a cada sección
-sections.forEach(section => {
-  observer.observe(section);
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    prevButton.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide(); // Detiene el slide automático al usar el control
+    });
+
+    nextButton.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide(); // Detiene el slide automático al usar el control
+    });
+
+    // Inicializa el primer slide
+    showSlide(currentIndex);
+
+    // Inicia el slide automático
+    startAutoSlide();
+
+    // Código para la animación de secciones
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Código del contador que se activa al hacer scroll
+    const counters = document.querySelectorAll('.counter');
+    const observerOptions = {
+        threshold: 0.5 // Se activará cuando al menos el 50% de la sección esté visible
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.counter');
+                counters.forEach(counter => startCounter(counter));
+
+                // Desconectar el observador después de que los contadores comiencen
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const statsSection = document.querySelector('.stats-container');
+    counterObserver.observe(statsSection);
+
+    // Función para iniciar el contador
+    function startCounter(counter) {
+        const target = +counter.getAttribute('data-target');
+        const span = counter.querySelector('span');
+
+        const updateCounter = () => {
+            const currentValue = +span.innerText;
+            const increment = Math.ceil(target / 200);
+
+            if (currentValue < target) {
+                span.innerText = currentValue + increment;
+                setTimeout(updateCounter, 20);
+            } else {
+                span.innerText = target;
+            }
+        };
+
+        updateCounter();
+    }
 });
-
+document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-link-mobile');
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (pageYOffset >= sectionTop - 50 && pageYOffset < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+});
