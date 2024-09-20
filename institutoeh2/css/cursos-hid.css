@@ -1,0 +1,658 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+}
+html {
+    scroll-behavior: smooth;
+}
+.nav-link, .nav-link-mobile {
+    transition: color 0.3s ease;
+}
+
+.active {
+    color: #f00; /* Cambia el color según tu diseño */
+}
+
+/* Estilos Generales */
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+@media only screen and (min-width: 1200px){
+    .content{
+        width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+}
+@media only screen and (min-width: 1200px){
+    .content-v{
+        margin: 5rem 0 5rem 0;
+        padding: 0 5rem 0 5rem;
+        margin-left: auto;
+        margin-right: auto;
+    } 
+}
+/* Animaciones generales */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+/* Estilos para el contenedor principal de navegación */
+nav {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0; /* Mantiene la barra en la parte superior de la página */
+    flex-direction: column;
+    background-color: #fff; /* Fondo blanco para la navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra en la parte inferior */
+    z-index: 1000; /* Asegura que la navbar esté por encima del contenido */
+    transition: padding 0.1s ease; /* Transición suave para el cambio de padding */
+}
+
+/* Estilos para la barra de navegación superior */
+.nav-top {
+    display: flex;
+    justify-content: flex-end; /* Alinear al final */
+    padding: 1rem 6rem 0 6rem;
+    background-color: #fff; /* Fondo blanco para la sección superior */
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+.nav-top a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #066c75; /* Color del texto */
+    font-weight: bold;
+    font-size: 12px;
+}
+.nav-link-mobile {
+    margin: 2rem;
+    color: #fff;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+.nav-link {
+    text-decoration: none;
+    color: #333; /* Color del texto */
+    font-weight: bold;
+    font-size: 1.6rem; /* Ajusta el tamaño de fuente a 16px */
+    padding: 0 2rem 0 2rem;
+}
+/* Estilos para la barra de navegación inferior */
+.nav-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 6rem 3rem 6rem;
+    transition: padding 0.3s ease; /* Transición suave para el cambio de padding */
+}
+/* Estilos para el logo */
+.logo {
+    max-width: 10% !important; /* Asegura que el contenedor no limite el tamaño */
+    margin-bottom: 1rem;
+}
+.logo img {
+    height: 6rem; /* Tamaño inicial del logo */
+    width: auto; /* Mantiene la proporción del logo */
+    display: block; /* Asegura que no haya espacios en línea */
+    transition: height 0.3s ease; /* Transición suave para el cambio de tamaño del logo */
+}
+.logo2 {
+    max-width: 20% !important; /* Asegura que el contenedor no limite el tamaño */
+}
+@media (max-width: 992px) {
+    /* Ajusta el tamaño del logo2 en dispositivos móviles */
+    .logo2 img {
+        height: 5rem; /* Ajusta la altura para pantallas pequeñas */
+        width: auto; /* Mantiene la proporción del logo */
+    }
+    .logo2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        height: 5rem; /* Ajusta la altura para pantallas pequeñas */
+        width: auto; /* Mantiene la proporción del logo */
+    }
+}
+
+
+.logo2 img {
+    height: 7rem; /* Tamaño inicial del logo */
+    width: auto; /* Mantiene la proporción del logo */
+    display: block; /* Asegura que no haya espacios en línea */
+    transition: height 0.3s ease; /* Transición suave para el cambio de tamaño del logo */
+}
+
+/* Estilos cuando la navbar se reduce */
+.navbar-shrink {
+    padding: 1rem 2rem; /* Reduce el padding para hacer la navbar más pequeña */
+}
+
+.navbar-shrink .nav-bottom {
+    padding: 0.5rem 2rem; /* Ajusta el padding también para la barra inferior */
+}
+
+/* Estilos del logo cuando la navbar se reduce */
+.navbar-shrink .nav-bottom img {
+    height: 5rem; /* Reduce el tamaño del logo ligeramente */
+}
+
+/* Estilos del contenido de la navbar */
+.nav-link {
+    font-size: 1.6rem; /* Ajusta el tamaño de fuente de los enlaces */
+    transition: font-size 0.3s ease; /* Transición suave para el cambio de tamaño del texto */
+}
+
+.navbar-shrink .nav-link {
+    font-size: 1.6rem; /* Mantiene el tamaño de fuente de los enlaces igual al reducir la navbar */
+}
+
+/* .nav-link:hover {
+    color: #0097a7; /* Color al pasar el cursor 
+} */
+
+/* Estilos para el botón de menú hamburguesa */
+.hamburger {
+    display: flex;
+    font-size: 3rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 1rem 3rem; /* Ajusta el margen según sea necesario */
+}
+
+@media (min-width: 993px) {
+    .logo-mobile {
+        display: none; /* Oculta la barra superior */
+    }
+    .hamburger {
+        display: none; /* Oculta la barra superior */
+    }
+    .menu-items-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-top {
+        display: none; /* Oculta la barra superior */
+    }
+    nav {
+        padding: 3rem 2rem 3rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .nav-bottom {
+        display: none; /* Oculta el menú de navegación por defecto */
+    }
+
+    .menu-items-mobile {
+        display: none; 
+        flex-direction: column; 
+        gap: 1rem; 
+        padding: 1rem;
+        background-color: #fff; 
+        position: absolute; 
+        top: 3.5rem; 
+        left: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 1000ms linear, opacity 100ms ease;
+        opacity: 0; 
+        visibility: hidden;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .menu-items-mobile.show {
+        display: flex;
+        opacity: 1; 
+        visibility: visible; 
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background-color: #0097a7; 
+        margin-top: 8.2rem;
+        height: 80vh;
+        transition: background-color 600ms linear, opacity 100ms ease;
+    }
+
+    .nav-link-mobile {
+        margin: 2rem;
+        color: #fff;
+        font-size: 2.5rem;
+    }
+
+    .logo-mobile {
+        max-width: 20%; 
+    }
+
+    .logo-mobile-img {
+        max-width: 20%; 
+    }
+}
+@media (max-width: 992px) {
+    /* Ajusta el tamaño del logo móvil */
+    .logo-mobile img, .logo-mobile-img {
+        height: 5rem; /* Reduce la altura del logo */
+        width: auto; /* Mantiene la proporción del logo */
+    }
+}
+
+
+/* CURSOS */
+.cursos-sub {
+    margin-top: 10rem;
+    padding: 8rem 2rem 15rem 2rem;
+    background-color: #18282f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cursos-sub-title h1 {
+    font-size: clamp(2.4rem, 4vw + 1rem, 4rem);
+    color: #fff;
+}
+
+.cursos-sub-subtitle h3 {
+    font-size: clamp(1.8rem, 2.5vw + 1rem, 2.7rem);
+    color: #e6e6e6;
+    font-weight: 300 !important;
+    text-align: center;
+}
+
+.cursos-sub-title {
+    margin-top: 7rem;
+}
+
+.cursos-sub-subtitle {
+    margin-top: 1rem;
+}
+
+.cursos-sub-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 90%;
+    gap: 20px; /* Espacio entre columnas */
+    margin-top: 10rem;
+}
+.cursos-sub-image {
+    flex: 0 0 60%; 
+}
+
+.cursos-sub-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.cursos-sub-content {
+    flex: 0 0 40%; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: #051a1a; 
+    padding: 4rem;
+    border-radius: 12px;
+}
+
+.cursos-sub-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.cursos-sub-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #ddd; 
+}
+
+.cursos-sub-content p {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.btn-comienza {
+    padding: 2rem 2rem;
+    margin-top: 2rem;
+    background-color: #0097a7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comienza:hover {
+    background-color: #007380; 
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 992px) {
+    .cursos-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .cursos-image, .cursos-content {
+        flex: 0 0 auto; 
+        max-width: 100%; 
+    }
+    .cursos{
+        padding: 2rem 4rem !important;
+    }
+    .inverse{
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 992px) {
+    .modalidades {
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .card {
+        margin: 2rem 0 2rem 0;
+    }
+    .cursos{
+        margin-bottom: 5rem;
+    }
+}
+@media (max-width: 768px) { /* Cambia el valor según necesites */
+    .cursos-sub-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-rows: auto; /* Una fila para cada curso */
+    }
+}
+footer {
+    background-color: #1f1f1f; /* Fondo oscuro */
+    color: #ecf0f1; /* Texto claro */
+    padding: 5rem 0;
+    text-align: center;
+}
+.bt-lft-sd-ftr div i{
+    font-size: 2rem;
+    padding: 0 1rem 0 1rem;
+}
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-bottom .logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-bottom .logo p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu-items .footer-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu-items .footer-link:hover {
+    color: #3498db;
+}
+
+.social-media-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #313131;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.left-side-footer, .right-side-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.tp-lft-sd-ftr, .tp-rght-sd-ftr {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ecf0f1;
+    font-weight: bold;
+}
+
+.bt-lft-sd-ftr, .bt-rght-sd-ftr {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+}
+
+.bt-lft-sd-ftr div, .bt-rght-sd-ftr div {
+    font-size: 20px;
+}
+
+.bt-lft-sd-ftr a, .bt-rght-sd-ftr a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.bt-lft-sd-ftr a:hover, .bt-rght-sd-ftr a:hover {
+    color: #3498db;
+}
+.cursos {
+    margin: 15rem 0 10rem 0;
+    padding: 4rem 2rem;
+    background-color: #18282f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cursos-title h1 {
+    font-size: clamp(2.4rem, 4vw + 1rem, 4rem);
+    color: #fff;
+}
+
+.cursos-subtitle h3 {
+    font-size: clamp(1.8rem, 2.5vw + 1rem, 2.7rem);
+    color: #e6e6e6;
+    font-weight: 300 !important;
+    text-align: center;
+}
+
+.cursos-title {
+    margin-top: 7rem;
+}
+
+.cursos-subtitle {
+    margin-top: 1rem;
+}
+
+.cursos-container {
+    display: flex;
+    flex-direction: row; 
+    max-width: 1200px; 
+    gap: 2rem;
+    margin-top: 10rem;
+}
+.cursos-image {
+    flex: 0 0 60%; 
+}
+
+.cursos-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.cursos-content {
+    flex: 0 0 40%; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #051a1a; 
+    padding: 4rem;
+    border-radius: 12px;
+}
+
+.cursos-content h2 {
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.cursos-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #ddd; 
+}
+
+.cursos-content p {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #ccc;
+}
+
+.btn-comienza {
+    padding: 2rem 2rem;
+    margin-top: 2rem;
+    background-color: #0097a7;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comienza:hover {
+    background-color: #007380; 
+}
+
+/* Responsividad para pantallas más pequeñas */
+@media (max-width: 992px) {
+    .cursos-sub-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .cursos-image, .cursos-content {
+        flex: 0 0 auto; 
+        max-width: 100%; 
+    }
+    .cursos{
+        padding: 2rem 4rem !important;
+    }
+    .inverse{
+        flex-direction: column-reverse;
+    }
+}
+
+/* Animaciones generales */
+.section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .footer-legal {
+    padding: 20px 0;
+    border-top: 1px solid #313131;
+    font-size: 14px;
+    color: #bdc3c7;
+    background-color: #1f1f1f;
+}
+
+.footer-legal-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-legal-link {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.2rem;
+}
+
+.footer-legal-link:hover {
+    color: #3498db;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 768px) {
+    .footer-bottom, .social-media-footer, .footer-legal-items {
+        flex-direction: column;
+    }
+    .footer-legal-items {
+        text-align: center;
+    }
+    .menu-items {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 5rem 0;
+    }
+}
+.footer-link{
+    padding: 0 1rem 0 1rem;
+}
