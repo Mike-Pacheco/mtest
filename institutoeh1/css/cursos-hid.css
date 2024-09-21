@@ -50,7 +50,8 @@ body {
 /* Estilos para el contenedor principal de navegación */
 nav {
     display: flex;
-    position: sticky;
+    width: 100%;
+    position: fixed;
     top: 0; /* Mantiene la barra en la parte superior de la página */
     flex-direction: column;
     background-color: #fff; /* Fondo blanco para la navbar */
@@ -137,7 +138,7 @@ nav {
 
 /* Estilos cuando la navbar se reduce */
 .navbar-shrink {
-    padding: 0.5rem 2rem; /* Reduce el padding para hacer la navbar más pequeña */
+    padding: 1rem 2rem; /* Reduce el padding para hacer la navbar más pequeña */
 }
 
 .navbar-shrink .nav-bottom {
@@ -190,7 +191,6 @@ nav {
         display: none; /* Oculta la barra superior */
     }
     nav {
-        height: 18%;
         padding: 3rem 2rem 3rem 2rem;
         display: flex;
         justify-content: space-between;
@@ -258,6 +258,7 @@ nav {
 
 /* CURSOS */
 .cursos-sub {
+    margin-top: 10rem;
     padding: 8rem 2rem 15rem 2rem;
     background-color: #18282f;
     display: flex;
@@ -287,9 +288,10 @@ nav {
 
 .cursos-sub-container {
     display: flex;
-    flex-direction: row; 
-    max-width: 1200px; 
-    gap: 2rem;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 90%;
+    gap: 20px; /* Espacio entre columnas */
     margin-top: 10rem;
 }
 .cursos-sub-image {
@@ -307,14 +309,15 @@ nav {
     color: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 10px;
     background-color: #051a1a; 
     padding: 4rem;
     border-radius: 12px;
 }
 
 .cursos-sub-content h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     margin-bottom: 1.5rem;
 }
 
@@ -377,6 +380,117 @@ nav {
     .cursos{
         margin-bottom: 5rem;
     }
+}
+@media (max-width: 768px) { /* Cambia el valor según necesites */
+    .cursos-sub-container {
+        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-rows: auto; /* Una fila para cada curso */
+    }
+}
+footer {
+    background-color: #1f1f1f; /* Fondo oscuro */
+    color: #ecf0f1; /* Texto claro */
+    padding: 5rem 0;
+    text-align: center;
+}
+.bt-lft-sd-ftr div i{
+    font-size: 2rem;
+    padding: 0 1rem 0 1rem;
+}
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 5rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-bottom .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-bottom .logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.footer-bottom .logo p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bdc3c7;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.menu-items .footer-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu-items .footer-link:hover {
+    color: #3498db;
+}
+
+.social-media-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #313131;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.left-side-footer, .right-side-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.tp-lft-sd-ftr, .tp-rght-sd-ftr {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ecf0f1;
+    font-weight: bold;
+}
+
+.bt-lft-sd-ftr, .bt-rght-sd-ftr {
+    display: flex;
+    gap: 15px;
+    font-size: 16px;
+}
+
+.bt-lft-sd-ftr div, .bt-rght-sd-ftr div {
+    font-size: 20px;
+}
+
+.bt-lft-sd-ftr a, .bt-rght-sd-ftr a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.bt-lft-sd-ftr a:hover, .bt-rght-sd-ftr a:hover {
+    color: #3498db;
 }
 .cursos {
     margin: 15rem 0 10rem 0;
@@ -498,112 +612,6 @@ nav {
     transform: translateY(0);
   }
   
-  footer {
-    background-color: #1f1f1f; /* Fondo oscuro */
-    color: #ecf0f1; /* Texto claro */
-    padding: 5rem 0;
-    margin-top: 15rem;
-    text-align: center;
-}
-.bt-lft-sd-ftr div i{
-    font-size: 2rem;
-    padding: 0 1rem 0 1rem;
-}
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    margin-top: 5rem;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-bottom .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.footer-bottom .logo img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-.footer-bottom .logo p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #bdc3c7;
-}
-
-.menu-items {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.menu-items .footer-link {
-    color: #ecf0f1;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-.menu-items .footer-link:hover {
-    color: #3498db;
-}
-
-.social-media-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    border-top: 1px solid #313131;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 3rem;
-    flex-wrap: wrap;
-}
-
-.left-side-footer, .right-side-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.tp-lft-sd-ftr, .tp-rght-sd-ftr {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #ecf0f1;
-    font-weight: bold;
-}
-
-.bt-lft-sd-ftr, .bt-rght-sd-ftr {
-    display: flex;
-    gap: 15px;
-    font-size: 16px;
-}
-
-.bt-lft-sd-ftr div, .bt-rght-sd-ftr div {
-    font-size: 20px;
-}
-
-.bt-lft-sd-ftr a, .bt-rght-sd-ftr a {
-    color: #ecf0f1;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.bt-lft-sd-ftr a:hover, .bt-rght-sd-ftr a:hover {
-    color: #3498db;
-}
   .footer-legal {
     padding: 20px 0;
     border-top: 1px solid #313131;

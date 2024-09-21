@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const hamburger = document.getElementById("hamburger");
     const navMenuMobile = document.querySelector(".menu-items-mobile");
     const navbar = document.querySelector("nav");
+    const navLinksMobile = document.querySelectorAll('.nav-link-mobile'); // Seleccionar los enlaces del menú móvil
 
     hamburger.addEventListener("click", function () {
         if (navMenuMobile.classList.contains("show")) {
@@ -18,6 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 navMenuMobile.style.opacity = '1';
             }, 10);
         }
+    });
+
+    // Cerrar el menú móvil al hacer clic en un enlace
+    navLinksMobile.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenuMobile.style.opacity = '0';
+            setTimeout(() => {
+                navMenuMobile.classList.remove("show");
+                navMenuMobile.style.display = 'none';
+            }, 500); // Igualar el tiempo de transición
+        });
     });
 
     // Evento de scroll para reducir el tamaño de la navbar
