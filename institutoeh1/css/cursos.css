@@ -205,13 +205,13 @@ nav {
         flex-direction: column; 
         gap: 1rem; 
         padding: 1rem;
-        background-color: #fff; 
+        background-color: #1a1a1a; 
         position: absolute; 
         top: 3.5rem; 
         left: 0;
         width: 100%;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        transition: background-color 1000ms linear, opacity 100ms ease;
+        transition: background-color 1000ms linear, opacity 500ms ease;
         opacity: 0; 
         visibility: hidden;
     }
@@ -222,17 +222,32 @@ nav {
 
     .menu-items-mobile.show {
         display: flex;
-        opacity: 1; 
-        visibility: visible; 
         justify-content: center;
         align-items: center;
         align-content: center;
-        background-color: #0097a7; 
-        margin-top: 8.2rem;
-        height: 80vh;
-        transition: background-color 600ms linear, opacity 100ms ease;
+        height: 100%;
+        width: 100%;
+        visibility: visible;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: #21313ff2;
+        overflow: hidden;
+        transition: all 0.3s ease 0s;
     }
-
+    .close{
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 65px;
+        text-decoration: none;  
+        padding: 15px;
+        font-size: 5rem;
+        display: block;
+        font-weight: 200;
+        color: #eceff1;
+    }
     .nav-link-mobile {
         margin: 2rem;
         color: #fff;

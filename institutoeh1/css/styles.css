@@ -172,6 +172,7 @@ nav {
     border: none;
     cursor: pointer;
     margin: 1rem 3rem; /* Ajusta el margen según sea necesario */
+    color: #0097a7;
 }
 
 @media (min-width: 993px) {
@@ -222,17 +223,32 @@ nav {
 
     .menu-items-mobile.show {
         display: flex;
-        opacity: 1; 
-        visibility: visible; 
         justify-content: center;
         align-items: center;
         align-content: center;
-        background-color: #003f43; 
-        margin-top: 8.2rem;
-        height: 80vh;
-        transition: background-color 600ms linear, opacity 200ms ease;
+        height: 100%;
+        width: 100%;
+        visibility: visible;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        background-color: #21313ff2;
+        overflow: hidden;
+        transition: all 0.3s ease 0s;
     }
-
+    .close{
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 65px;
+        text-decoration: none;  
+        padding: 15px;
+        font-size: 5rem;
+        display: block;
+        font-weight: 200;
+        color: #eceff1;
+    }
     .nav-link-mobile {
         margin: 2rem;
         color: #fff;
@@ -873,7 +889,10 @@ video {
     .contact-container{
         padding: 0 2rem 0 2rem;
     }
-
+    
+    .text-content h1 {
+        font-size: 5rem;
+    }
     .text-content {
         margin-right: 0;
         margin-bottom: 20px; 
@@ -1226,6 +1245,12 @@ footer {
 
 .bt-lft-sd-ftr div, .bt-rght-sd-ftr div {
     font-size: 20px;
+}
+.bt-lft-sd-ftr p .bt-rght-sd-ftr p {
+    font-size: 20px;
+}
+.numbers {
+    font-size: 14px;
 }
 
 .bt-lft-sd-ftr a, .bt-rght-sd-ftr a {
