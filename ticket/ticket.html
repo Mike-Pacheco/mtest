@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cita Parque México</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-color: #c5b38d;
+            --text-dark: #333;
+            --bg-paper: #fdfdfd;
+        }
+
+        body {
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #383838;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Contenedor que mantiene la proporción */
+        .card-wrapper {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .invitation-card {
+            background-color: var(--bg-paper);
+            background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+            display: flex;
+            flex-direction: row; /* Siempre en fila */
+            padding: 5% 3%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            width: 100%;
+            aspect-ratio: 3 / 2; /* Mantiene la forma rectangular/cuadrada */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Sección Izquierda: Foto y Nombres laterales */
+/* 1. Agrandamos el contenedor del marco */
+.photo-section {
+    flex: 1.4; /* Le damos un poco más de peso visual a la izquierda */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* 2. El marco ahora ocupa casi todo el alto y más ancho */
+.image-frame {
+    border: 12px solid var(--gold-color);
+    width: 85%;    /* Aumentamos de 60% a 85% */
+    height: 80%;   /* Definimos una altura fija respecto al contenedor */
+    position: relative;
+    z-index: 2;
+    overflow: hidden; /* Importante para que la imagen no se salga del marco */
+}
+
+/* 3. La imagen ahora "llena" el marco */
+.image-frame img {
+    width: 100%;
+    height: 100%;  /* Forzamos a que ocupe todo el alto del marco */
+    object-fit: cover; /* MAGIA: Llena el espacio sin estirarse (mantiene proporción) */
+    display: block;
+}
+
+        .name-vertical {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 3rem); /* Tamaño fluido */
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: absolute;
+            white-space: nowrap;
+            z-index: 1;
+        }
+
+        .name-left {
+            transform: rotate(-90deg) translateX(-50%);
+            left: 0;
+            top: 50%;
+            transform-origin: left center;
+        }
+
+        .name-right {
+            transform: rotate(90deg) translateX(50%);
+            right: 0;
+            bottom: 50%;
+            transform-origin: right center;
+        }
+
+        /* Sección Derecha: Texto */
+        .info-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2%;
+        }
+
+        .script-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+            margin-bottom: 5%;
+        }
+
+        .date-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5% 0;
+        }
+
+        .bracket {
+            font-size: clamp(2rem, 8vw, 6rem);
+            color: var(--gold-color);
+            font-weight: 100;
+        }
+
+        .date-numbers {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 3vw, 2.2rem);
+            color: var(--gold-color);
+            margin: 0 10px;
+            letter-spacing: 2px;
+        }
+
+        .details-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.8rem, 2.2vw, 1.4rem);
+            line-height: 1.4;
+        }
+
+        .address {
+            margin-top: 8%;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(0.7rem, 1.8vw, 1rem);
+            border-top: 1px dotted #ccc;
+            border-bottom: 1px dotted #ccc;
+            padding: 5% 0;
+        }
+
+        .rsvp {
+            margin-top: 8%;
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
+            letter-spacing: 1px;
+        }
+
+        /* Ajuste fino para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .image-frame { border-width: 6px; }
+            .invitation-card { padding: 2% 1%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-wrapper">
+        <div class="invitation-card">
+            <div class="photo-section">
+                <!-- <div class="name-vertical name-left">Corina</div> -->
+                <div class="image-frame">
+                    <img src="./Parque-México-1.jpg" alt="Novios">
+                </div>
+                <!-- <div class="name-vertical name-right">Mateo</div> -->
+            </div>
+
+            <div class="info-section">
+                <div class="script-text">Parque México</div>
+                
+                <div class="date-container">
+                    <span class="bracket">{</span>
+                    <span class="date-numbers">27/01/26</span>
+                    <span class="bracket">}</span>
+                </div>
+
+                <div class="details-text">
+                    Caminemos sin prisa
+                </div>
+
+                <div class="address">
+                    Enfrente del Foro Lindbergh
+                </div>
+
+                <div class="rsvp">
+                    3:00 PM
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
