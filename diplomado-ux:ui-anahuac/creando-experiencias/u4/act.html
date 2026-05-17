@@ -53,32 +53,20 @@
 
         .university-logo-container {
             margin-bottom: 2.5rem;
-            width: 240px;
-            height: 80px;
+            width: 200px;  /* Ancho máximo para el logo real */
+            height: auto;  /* Dejamos que el alto se calcule solo para no deformar el logo */
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px dashed rgba(255, 107, 0, 0.3);
-            border-radius: var(--border-radius);
-            background: rgba(22, 27, 38, 0.5);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
+            border: none;       /* Eliminamos el borde de pruebas */
+            background: none;   /* Eliminamos el fondo de pruebas */
         }
 
-        .university-logo-container:hover {
-            border-color: var(--accent-color);
-            background: rgba(22, 27, 38, 0.8);
-        }
-
-        /* Imagen del logo real (reemplazar src cuando lo tengas) */
         .university-logo-container img {
-            max-width: 85%;
-            max-height: 80%;
+            width: 100%;       /* Obliga a la imagen a ocupar todo el ancho del contenedor */
+            height: auto;      /* Mantiene la proporción original de aspecto */
             object-fit: contain;
-            display: none; /* Se oculta el texto si hay imagen */
+            display: block;    /* Cambiar de 'none' a 'block' para que sea visible */
         }
 
         .hero h1 {
@@ -139,6 +127,9 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem; /* Separación uniforme entre secciones */
         }
 
         section h2 {
@@ -161,12 +152,22 @@
             border-radius: 2px;
         }
 
+        /* Sección Introducción */
+        .intro-block {
+            max-width: 850px;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .intro-block p + p {
+            margin-top: 1.2rem;
+        }
+
         /* Grid de Aplicaciones de Referencia */
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 5rem;
         }
 
         .app-card {
@@ -325,11 +326,24 @@
             color: var(--accent-color);
         }
 
+        /* Sección de Conclusiones */
+        .conclusions-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 100%;
+        }
+        .conclusions-card p + p {
+            margin-top: 0.5rem;
+        }
+
         /* Footer / Referencias */
         footer {
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 3rem 2rem;
-            margin-top: 4rem;
             background: #080B12;
         }
 
@@ -363,34 +377,17 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .meta-info { flex-direction: column; gap: 1rem; }
+            .container { gap: 3.5rem; padding: 2rem 1.5rem; }
         }
-                .university-logo-container {
-            margin-bottom: 2.5rem;
-            width: 200px;  /* Ancho máximo para el logo real */
-            height: auto;  /* Dejamos que el alto se calcule solo para no deformar el logo */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: none;       /* Eliminamos el borde de pruebas */
-            background: none;   /* Eliminamos el fondo de pruebas */
-        }
-
-        .university-logo-container img {
-            width: 100%;       /* Obliga a la imagen a ocupar todo el ancho del contenedor (400px) */
-            height: auto;      /* Mantiene la proporción original de aspecto */
-            object-fit: contain;
-            display: block;    /* Cambiar de 'none' a 'block' para que sea visible */
-        }
+        
     </style>
 </head>
 <body>
 
     <!-- PORTADA / HERO -->
     <header class="hero">
-        <!-- Espacio reservado para el Logo de la Anáhuac Online -->
-        <!-- Cuando tengas el logo, cambia el contenido de esta caja por: <img src="ruta/logo-anahuac.png" alt="Anáhuac Online" style="display:block;"> -->
-        <div class="university-logo-container" style="border:none; background:transparent;">
-            <img src="../img/logo-anahuac-online.png" alt="Universidad Anáhuac Online" style="display:block;">
+        <div class="university-logo-container">
+            <img src="../img/logo-anahuac-online.png" alt="Universidad Anáhuac Online">
         </div>
 
         <h1>Diplomado en Diseño UX:</h1>
@@ -407,40 +404,76 @@
                 <strong>Alumno</strong>
                 Miguel Ángel Pacheco Anguiano
             </div>
-            <!-- <div class="meta-item">
-                <strong>Institución</strong>
-                Universidad Anáhuac Online
-            </div> -->
         </div>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="container">
 
-        <!-- SECCIÓN 1: ECOREGIONES / APPS DE REFERENCIA -->
-        <section>
+        <!-- BLOQUE INTRODUCTORIO -->
+        <section class="conclusions-card">
+            <h2>Introducción</h2>
+            <p>
+                El diseño intuitivo representa uno de los pilares fundamentales dentro de la experiencia de usuario contemporánea. 
+                Actualmente, plataformas digitales líderes como Spotify, Airbnb, Uber y Netflix destacan no únicamente por sus servicios, 
+                sino por la capacidad de reducir fricción cognitiva, facilitar la navegación y generar experiencias fluidas para millones de usuarios.
+            </p>
+            <p>
+                La presente actividad analiza principios de usabilidad y arquitectura de interacción presentes en interfaces reconocidas internacionalmente, 
+                identificando buenas prácticas aplicables al diseño de productos digitales centrados en el usuario. 
+                Cada principio se encuentra sustentado mediante teorías de UX, heurísticas de usabilidad y leyes psicológicas utilizadas actualmente en la industria.
+            </p>
+        </section>
+
+        <!-- SECCIÓN 1: APPS DE REFERENCIA -->
+    <section>
+
             <h2>Interfaces de Referencia</h2>
+
             <div class="apps-grid">
+
                 <div class="app-card spotify">
+
                     <div class="app-icon">S</div>
+
                     <h3>Spotify</h3>
+
                     <p>Consistencia de controles de reproducción universales reduciendo fricción cognitiva al cambiar de ecosistema.</p>
+
                 </div>
+
                 <div class="app-card airbnb">
+
                     <div class="app-icon">A</div>
+
                     <h3>Airbnb</h3>
+
                     <p>Dominio absoluto de flujos de conversión complejos estructurados de manera lineal y progresiva.</p>
+
                 </div>
+
                 <div class="app-card uber">
+
                     <div class="app-icon">U</div>
+
                     <h3>Uber</h3>
+
                     <p>Reducción de fricción física y digital instantánea basada enteramente en geolocalización predictiva.</p>
+
                 </div>
+
                 <div class="app-card netflix">
+
                     <div class="app-icon">N</div>
+
                     <h3>Netflix</h3>
+
                     <p>Curaduría e interfaces oscuras optimizadas para retención visual prolongada y escaneo ágil.</p>
+
                 </div>
+
             </div>
+
         </section>
 
         <!-- SECCIÓN 2: LAS BUENAS PRÁCTICAS INTERACTIVAS -->
@@ -681,25 +714,90 @@
 
             </div>
         </section>
+
+        <!-- SECCIÓN 3: CONCLUSIONES (Ya alineada perfectamente dentro del contenedor principal) -->
+        <section>
+            <h2>Conclusiones</h2>
+            <div class="conclusions-card">
+                <p>
+                    El diseño intuitivo no depende únicamente de la estética visual, sino de la capacidad que tiene una interfaz para alinearse con los modelos mentales del usuario y facilitar el cumplimiento de objetivos de forma eficiente.
+                </p>
+                <p>
+                    A través del análisis de plataformas como Spotify, Airbnb, Uber y Netflix, fue posible identificar principios recurrentes relacionados con consistencia, jerarquía visual, reducción de carga cognitiva, prevención de errores y retroalimentación inmediata.
+                </p>
+                <p>
+                    Estas buenas prácticas permiten construir experiencias digitales más accesibles, eficientes y satisfactorias, convirtiéndose en referencias fundamentales para futuros proyectos de diseño UX/UI centrados en el usuario.
+                </p>
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER / REFERENCIAS -->
     <footer>
         <div class="footer-content">
-            <div class="references">
-                <h4>Referencias Teóricas (Sustento Académico)</h4>
-                <ul>
-                    <li>• Nielsen, J. (2020). 10 Usability Heuristics for User Interface Design. Nielsen Norman Group.</li>
-                    <li>• Yablonski, J. (2020). Laws of UX: Using Psychology to Design Better Products and Services. O'Reilly Media.</li>
-                    <li>• Soegaard, M. (2023). The Law of Jakob: Designing for Familiarity. Interaction Design Foundation.</li>
-                </ul>
-            </div>
-            <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">© 2026 - Maqueta de Evaluación Académica. Desarrollada bajo principios de usabilidad avanzada.</p>
+<div class="references">
+    <h4>Referencias Teóricas y Casos de Estudio</h4>
+
+    <ul>
+
+        <li>
+            Nielsen, J. (2020). 
+            <i>10 usability heuristics for user interface design.</i> Nielsen Norman Group. 
+            https://www.nngroup.com/articles/ten-usability-heuristics/
+        </li>
+
+        <li>
+            Yablonski, J. (2020). 
+            <i>Laws of UX: Using psychology to design better products and services.</i> O'Reilly Media.
+        </li>
+
+        <li>
+            Norman, D. A. (2013). 
+            <i>The design of everyday things</i> (Revised and expanded ed.). Basic Books.
+        </li>
+
+        <li>
+            Lidwell, W., Holden, K., & Butler, J. (2010). 
+            <i>Universal principles of design</i> (2nd ed.). Rockport Publishers.
+        </li>
+
+        <li>
+            Interaction Design Foundation. (2024). 
+            <i>Gestalt principles.</i> 
+            https://www.interaction-design.org/literature/topics/gestalt-principles
+        </li>
+
+        <li>
+            Spotify Design. (2024). 
+            <i>Designing for consistency across platforms.</i> Spotify Design. 
+            https://spotify.design/
+        </li>
+
+        <li>
+            Airbnb Design. (2024). 
+            <i>Building a global booking experience.</i> Airbnb Design. 
+            https://airbnb.design/
+        </li>
+
+        <li>
+            Uber Design. (2024). 
+            <i>Designing real-time mobility experiences.</i> Uber Design. 
+            https://www.uber.design/
+        </li>
+
+        <li>
+            Netflix Product Design Team. (2024). 
+            <i>Personalization and interface navigation systems.</i> Netflix TechBlog. 
+            https://netflixtechblog.com/
+        </li>
+
+    </ul>
+</div>
         </div>
     </footer>
 
-    <!-- INTERACTIVIDAD DE LA INTERFAZ -->
-    <script>
+        <script>
         document.querySelectorAll('.practice-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
@@ -723,5 +821,6 @@
             });
         });
     </script>
+
 </body>
 </html>
