@@ -1,47 +1,36 @@
+
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" >
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta charset="UTF-8, user-scalable=no">
   <title>¡Los invitamos a nuestra Open House!</title>
   <link rel="stylesheet" href="./invit.css">
+
 </head>
 <body>
 
-  <div class="card">
-    <div class="imgBox">
-      <div class="bark"></div>
-      <img src="./img/house-card.jpg" alt="House Card">
-    </div>
-  
-    <div class="details">
-      <h2 class="color1">¡Los invitamos a</h2>
-      <h2 class="color3">nuestro Open House! 🏠</h2>
-      <p>Celebremos juntos nuestro nuevo</p>
-      <p> hogar y los cumpleaños de mayo. 🎂</p>
-      <p class="margin-top"><strong>🗓️ Fecha: Domingo 31 de mayo</strong></p>
-      <p><strong>3:00 PM</strong></p>
-      <p><strong>📌 Ubicación: Cañada del Olivar</strong></p>
-      <p class="text-right" style="margin-top: 80px !important;"><em>Evento de Traje: 🤵‍♂️</em></p>
-      <p class="text-right">"Traje un guisado" o</p>
-      <p class="text-right">"Traje los chescos"</p>
-    </div>
-  </div>
-
-  <div class="inst">
-    <h1>Haz click sobre la tarjeta</h1>
-  </div>
-
-  <script>
-    const card = document.querySelector('.card');
-    const body = document.body;
-
-    // Al hacer clic, alternamos el estado de la tarjeta y del body
-    card.addEventListener('click', () => {
-      card.classList.toggle('open');
-      body.classList.toggle('card-opened');
-    });
-  </script>
+	<div class="card">
+		<div class="imgBox">
+			<div class="bark"></div>
+			<img src="./img/house-card.jpg">
+		</div>
+		<div class="inst">
+			<h1>Haz click sobre la tarjeta</h1>
+		</div>
+	
+<div class="details">
+            <h2 class="color1">¡Los invitamos a</h2>
+            <h2 class="color3">nuestro Open House! 🏠</h2>
+            <p>Celebremos juntos nuestro nuevo</p>
+            <p> hogar y los cumpleaños de mayo. 🎂</p>
+            <p class="margin-top"><strong>🗓️ Fecha: Domingo 31 de mayo</strong></p>
+            <p><strong>3:00 PM</strong></p>
+            <p><strong>📌 Ubicación: Cañada del Olivar</strong></p>
+            <p class="text-right" style="margin-top: 80px !important;"><em>Evento de Traje: 🤵‍♂️</em></p>
+            <p class="text-right">"Traje un guisado" o</p>
+            <p class="text-right">"Traje los chescos"</p>
+        </div>
+	</div>
 
 </body>
 </html>
