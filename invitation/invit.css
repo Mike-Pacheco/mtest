@@ -2,153 +2,205 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 body {
-	font-family: 'Indie Flower', cursive !important;
+  font-family: 'Indie Flower', cursive !important;
   background: #f4eae1;
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 ::selection {
-	background: transparent;
+  background: transparent;
 }
 
 h4 {
-	font-size: 46px;
-	line-height: 1px;
-	font-family: 'Amatic SC', cursive !important;
+  font-size: 46px;
+  line-height: 1px;
+  font-family: 'Amatic SC', cursive !important;
 }
 
 .color1{color:#1484b2}
 .color2{color:#C0392B}
 
 .color1{
-    	transform: rotate(-10deg);
-        margin-bottom: 0px !important;
-	padding: 10px 0 0 40px;
-    font-size: 35px;
+  transform: rotate(-10deg);
+  margin-bottom: 0px !important;
+  padding: 10px 0 0 40px;
+  font-size: 35px;
 }
 .color3{
-    margin-bottom: 60px;
-    color: #1484b2;
-    margin-top: 0px !important;
-    transform: rotate(-10deg);
-	padding: 0 0 0 130px;
-    font-size: 35px;
-}
-.card {
-	color: #171718;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 600px;
-	height: 800px;
-	background: #e0e1dc;
-	transform-style: preserve-3d;
-	transform: translate(-50%,-50%) perspective(2000px);
-	box-shadow: inset 600px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
-	transition: 1s;
+  margin-bottom: 60px;
+  color: #1484b2;
+  margin-top: 0px !important;
+  transform: rotate(-10deg);
+  padding: 0 0 0 130px;
+  font-size: 35px;
 }
 
-.card:hover {
-	transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
-	box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
+/* El contenedor mantiene tu posición absoluta exacta */
+.card {
+  color: #171718;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 800px;
+  background: #e0e1dc;
+  transform-style: preserve-3d;
+  transform: translate(-50%,-50%) perspective(2000px);
+  box-shadow: inset 600px 0 50px rgba(0,0,0,.5), 20px 0 60px rgba(0,0,0,.5);
+  transition: 1s;
+  cursor: pointer;
+}
+
+/* Ahora la animación física responde al clic de JS manteniendo tus valores 3D */
+.card.open {
+  transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
+  box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
 }
 
 .card:before {
-	content:'';
-	position: absolute;
-	top: -5px;
-	left: 0;
-	width: 100%;
-	height: 5px;
-	background: #BAC1BA;
-	transform-origin: bottom;
-	transform: skewX(-45deg);
+  content:'';
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #BAC1BA;
+  transform-origin: bottom;
+  transform: skewX(-45deg);
 }
 
 .card:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: -5px;
-	width: 5px;
-	height: 100%;
-	background: #92A29C;
-	transform-origin: left;
-	transform: skewY(-45deg);
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: 5px;
+  height: 100%;
+  background: #92A29C;
+  transform-origin: left;
+  transform: skewY(-45deg);
 }
 
 .card .imgBox {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	transform-origin: left;
-	transition: .7s;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-origin: left;
+  transition: .7s;
 }
 
 .card .bark {
-	position: absolute;
-	background: #e0e1dc;
-	width: 100%;
-	height: 100%;
-	opacity: 0;
-	transition: .7s;
+  position: absolute;
+  background: #e0e1dc;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .7s;
 }
 
 .card .imgBox img {
-	min-width: 600px;
-	max-height: 800px;
+  min-width: 600px;
+  max-height: 800px;
 }
 
-.card:hover .imgBox {
-	transform: rotateY(-135deg);
+/* Modificado para que gire cuando la clase esté activa */
+.card.open .imgBox {
+  transform: rotateY(-135deg);
 }
 
-.card:hover .bark {
-	opacity: 1;
-	transition: .6s;
+/* Modificado para que haga el sombreado interno cuando la clase esté activa */
+.card.open .bark {
+  opacity: 1;
+  transition: .6s;
   box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
 }
 
 .card .details {
-	position: absolute;
-	top: 0;
-	left: 0;
-	box-sizing: border-box;
-	padding: 0 0 0 10px;
-	z-index: -1;
-	margin-top: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 0 0 0 10px;
+  z-index: -1;
+  margin-top: 70px;
 }
 
 .card .details p {
-	font-size: 35px;
-	line-height: 5px;
-	transform: rotate(-10deg);
-	padding: 10px 0 0 20px;
+  font-size: 35px;
+  line-height: 5px;
+  transform: rotate(-10deg);
+  padding: 10px 0 0 20px;
 }
 
 .card .details h4 {
-	text-align: center;
+  text-align: center;
 }
 
 .text-right {
-	text-align: right;
-    font-size: 30px !important;
+  text-align: right;
+  font-size: 25px !important;
 }
 .inst{
-    display: flex;
-    flex-direction: column-reverse;
-    z-index: -1;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: -1;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
 }
 .inst h1{
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    font-size: 55px;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  font-size: 55px;
 }
 .margin-top{
-    margin-top: 70px !important;
+  margin-top: 70px !important;
+}
+
+/* --- Estilo integrado para el link de Google Maps --- */
+.card .details p a.link-maps {
+  color: #1484b2;             
+  text-decoration: none;       
+  transition: all 0.3s ease;   
+  display: inline-block;       
+}
+
+.card .details p a.link-maps:hover {
+  color: #0b5a7d;              
+  transform: scale(1.02);      /* Reducido a 1.02 para que no choque con las líneas adyacentes de line-height: 5px */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
+}
+
+/* --- Estilos para el nuevo indicador con flecha rounded --- */
+
+.indicador-click {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+  color: #C0392B; 
+  margin-top: 28px; /* Espacio para que no se encime por el line-height: 5px */
+  position: relative;
+  left: 20px;
+  animation: rebotar 1.5s infinite ease-in-out;
+}
+
+/* Icono SVG estilizado y redondeado */
+.flecha-curva {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  transform: rotate(-10deg); /* Sutil rotación para emparejar con el texto inclinado */
+}
+
+@keyframes rebotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); } /* El rebote ahora es hacia arriba, señalando el texto */
+}
+
+@keyframes rebotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
