@@ -52,7 +52,7 @@ h4 {
   cursor: pointer;
 }
 
-/* Ahora la animación física responde al clic de JS manteniendo tus valores 3D */
+/* Animación física por click de JS */
 .card.open {
   transform: translate(-50%,-50%) perspective(2000px) rotate(15deg) scale(1.2);
   box-shadow: inset 20px 0 50px rgba(0,0,0,.5), 0 10px 100px rgba(0,0,0,.5);
@@ -104,12 +104,10 @@ h4 {
   max-height: 800px;
 }
 
-/* Modificado para que gire cuando la clase esté activa */
 .card.open .imgBox {
   transform: rotateY(-135deg);
 }
 
-/* Modificado para que haga el sombreado interno cuando la clase esté activa */
 .card.open .bark {
   opacity: 1;
   transition: .6s;
@@ -126,11 +124,13 @@ h4 {
   margin-top: 70px;
 }
 
+/* Modificamos esto para que no rompa los bloques especiales de abajo */
 .card .details p {
   font-size: 35px;
-  line-height: 5px;
+  line-height: 40px; /* Cambiado a 40px para que el texto respire y no colapse la tarjeta */
   transform: rotate(-10deg);
   padding: 10px 0 0 20px;
+  margin: 0 0 15px 0; /* Controlamos la separación con margins limpios */
 }
 
 .card .details h4 {
@@ -139,8 +139,10 @@ h4 {
 
 .text-right {
   text-align: right;
-  font-size: 25px !important;
+  font-size: 30px !important;
+  line-height: 35px !important; /* Ajuste específico para que el "Evento de traje" no se encime */
 }
+
 .inst{
   display: flex;
   flex-direction: column-reverse;
@@ -156,10 +158,10 @@ h4 {
   font-size: 55px;
 }
 .margin-top{
-  margin-top: 70px !important;
+  margin-top: 50px !important;
 }
 
-/* --- Estilo integrado para el link de Google Maps --- */
+/* --- CORRECCIÓN Y ESTILO PARA LA UBICACIÓN --- */
 .card .details p a.link-maps {
   color: #1484b2;             
   text-decoration: none;       
@@ -169,38 +171,26 @@ h4 {
 
 .card .details p a.link-maps:hover {
   color: #0b5a7d;              
-  transform: scale(1.02);      /* Reducido a 1.02 para que no choque con las líneas adyacentes de line-height: 5px */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1); 
+  transform: scale(1.02);      
 }
 
-/* --- Estilos para el nuevo indicador con flecha rounded --- */
-
+/* El contenedor del texto de ayuda con la flecha */
 .indicador-click {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  font-size: 20px;
+  font-size: 22px;
   color: #C0392B; 
-  margin-top: 28px; /* Espacio para que no se encime por el line-height: 5px */
-  position: relative;
-  left: 20px;
+  margin-top: 10px; /* Separación controlada */
   animation: rebotar 1.5s infinite ease-in-out;
 }
 
-/* Icono SVG estilizado y redondeado */
 .flecha-curva {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   margin-right: 8px;
-  transform: rotate(-10deg); /* Sutil rotación para emparejar con el texto inclinado */
 }
 
 @keyframes rebotar {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); } /* El rebote ahora es hacia arriba, señalando el texto */
-}
-
-@keyframes rebotar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-4px); } 
 }
