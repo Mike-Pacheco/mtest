@@ -1,36 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="es" >
 <head>
   <meta charset="UTF-8, user-scalable=no">
   <title>¡Los invitamos a nuestra Open House!</title>
   <link rel="stylesheet" href="./invit.css">
-
 </head>
 <body>
 
-	<div class="card">
-		<div class="imgBox">
-			<div class="bark"></div>
-			<img src="./img/house-card.jpg">
-		</div>
-		<div class="inst">
-			<h1>Haz click sobre la tarjeta</h1>
-		</div>
-	
-<div class="details">
-            <h2 class="color1">¡Los invitamos a</h2>
-            <h2 class="color3">nuestro Open House! 🏠</h2>
-            <p>Celebremos juntos nuestro nuevo</p>
-            <p> hogar y los cumpleaños de mayo. 🎂</p>
-            <p class="margin-top"><strong>🗓️ Fecha: Domingo 31 de mayo</strong></p>
-            <p><strong>3:00 PM</strong></p>
-            <p><strong>📌 Ubicación: Cañada del Olivar</strong></p>
-            <p class="text-right" style="margin-top: 80px !important;"><em>Evento de Traje: 🤵‍♂️</em></p>
-            <p class="text-right">"Traje un guisado" o</p>
-            <p class="text-right">"Traje los chescos"</p>
-        </div>
-	</div>
+  <div class="card" id="invitationCard">
+    <div class="imgBox">
+      <div class="bark"></div>
+      <img src="./img/house-card.jpg">
+    </div>
+    <div class="inst">
+      <h1>Haz click sobre la tarjeta</h1>
+    </div>
+  
+    <div class="details">
+      <h2 class="color1">¡Los invitamos a</h2>
+      <h2 class="color3">nuestro Open House! 🏠</h2>
+      <p>Celebremos juntos nuestro nuevo</p>
+      <p> hogar y los cumpleaños de mayo. 🎂</p>
+      <p class="margin-top"><strong>🗓️ Fecha: Domingo 31 de mayo</strong></p>
+      <p><strong>⏱️ Hora: 3:00 PM</strong></p>
+      
+<p>
+  <a href="TU_LINK_DE_GOOGLE_MAPS_AQUÍ" target="_blank" class="link-maps" id="mapsLink">
+    <strong>📌 Ubicación: Cañada del Olivar</strong>
+    <span class="indicador-click">
+      <svg class="flecha-curva" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+      ¡Pícale aquí para obtener la dirección!
+    </span>
+  </a>
+</p>
+      
+      <p class="text-right" style="margin-top: 60px !important;"><em>Evento de Traje: 🤵‍♂️</em></p>
+      <p class="text-right">"Traje un guisado" o</p>
+      <p class="text-right">"Traje los chescos"</p>
+    </div>
+  </div>
 
+  <script>
+    const card = document.getElementById('invitationCard');
+
+    card.addEventListener('click', (e) => {
+      // Si hacen clic en el link de Maps, permitimos que se abra el mapa normalmente sin cerrar la tarjeta
+      if (e.target.closest('#mapsLink')) {
+        return;
+      }
+      // Alterna la clase para abrir y cerrar al hacer clic/tap en cualquier otra parte
+      card.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
