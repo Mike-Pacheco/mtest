@@ -1883,3 +1883,54 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+/**
+ * TECH STACK
+ */
+
+.tech-stack { margin-bottom: 35px; }
+
+.tech-stack-title { margin-bottom: 30px; }
+
+.tech-stack-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 20px;
+}
+
+.tech-stack-item {
+  background: var(--bg-gradient-jet);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--jet);
+  box-shadow: var(--shadow-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  transition: 0.25s ease;
+}
+
+.tech-stack-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--orange-yellow-crayola); /* O el color de acento de tu tema */
+}
+
+.tech-icon-box {
+  font-size: 32px;
+  color: var(--orange-yellow-crayola); /* Color de acento para los iconos */
+}
+
+.tech-item-title {
+  color: var(--white-2);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+}
+.tech-subtitle {
+  margin: 25px 0 15px;
+  color: var(--white-2);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+  letter-spacing: 0.5px;
+}
